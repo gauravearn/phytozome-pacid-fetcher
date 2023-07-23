@@ -1,5 +1,5 @@
 # phytozome_pacid_fetcher
-this function takes ids file with the gene of interest and the phytozome gff files and will fetch the pacid for the genes of interest. much faster than the online version as it uses a dataframe approach a single loop iteration making it 0(n)1. 
+this function takes ids file with the gene of interest and the phytozome gff files and will fetch the pacid for the genes of interest. much faster than the online version as it uses a dataframe approach a single loop iteration making it 0(n)1. \
 Gaurav Sablok \
 Senior Postdoctoral Fellow \
 Faculty of Natural and Agricultural Sciences Room 7-35, \
