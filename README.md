@@ -1,5 +1,5 @@
 # phytozome_pacid_fetcher
-this function takes ids file with the gene of interest and the phytozome gff files and will fetch the pacid for the genes of interest. much faster than the online version as it uses a dataframe approach  \
+this function takes ids file with the gene of interest and the phytozome gff files and will fetch the pacid for the genes of interest. much faster than the online version as it uses a dataframe approach. Although wrote for integration into a flask app and a package but this can parse any phytozome file.  \
 Gaurav Sablok \
 Senior Postdoctoral Fellow \
 Faculty of Natural and Agricultural Sciences Room 7-35, \
