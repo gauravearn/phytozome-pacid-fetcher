@@ -54,11 +54,11 @@ def phytozomePacID(gff_file, ids_file):
         list[0] and the pacid listed at list[1].
     """
     with open(os.path.abspath(os.path.join(os.getcwd(),gff_file)), "r") as phytozome:
-    with open(os.path.abspath(os.path.join(os.getcwd(),gff_file + "name")), "w") as phytozomer:
-        for line in phytozome.readlines():
-          if line.startswith("!"): 
-            continue     
-          phytozome.write(line)
+        with open(os.path.abspath(os.path.join(os.getcwd(),gff_file + "name")), "w") as phytozomer:
+            for line in phytozome.readlines():
+                if line.startswith("!"): 
+                    continue     
+            phytozomer.write(line)
     phytozomedataframe = pd.read_csv(os.path.abspath(os.path.join(os.getcwd(),gff_file + "name")), sep = "\t")
     mRNA = phytozomedataframe.iloc[::,[2,8]]. \
                   where(phytozomedataframe.iloc[::,[2,8]]["gene"] == "mRNA").dropna()
@@ -90,12 +90,18 @@ def prepareFunctionalNamePhytozome(phytozome_file, output_file):
         a nested list with the pacid and the gene names along with the splice variants. 
     """
     functionalName = {}
-    with open(os.path.abspath(os.path.join(os.getcwd(),phytozome_file), "r")) as file:
+    with open(os.path.abspath(os.path.join(os.getcwd(),phytozome_file)), "r") as phytozome:
+        with open(os.path.abspath(os.path.join(os.getcwd(),phytozome_file + "name")), "w") as phytozomer:
+            for line in phytozome.readlines():
+                if line.startswith("!"): 
+                    continue     
+            phytozomer.write(line)
+    with open(os.path.abspath(os.path.join(os.getcwd(),phytozome_file + "name"), "r")) as file:
         for line in file.readlines():
             functionalName[line.strip().split("\t")[0]] = ''.join(j for i in \
                                                         ([line.strip().split("\t")[2:]]) for j in i)
     with open(os.path.abspath(os.path.join(os.getcwd(),output_file, "w") as processed:
-        print(geneName, file=processed)
+        print(functionalName, file=processed)
 
 def preparegeneNamePhytozome(phytozome_file, output_file):
     """
@@ -110,7 +116,13 @@ def preparegeneNamePhytozome(phytozome_file, output_file):
         a nested list with the pacid and the gene names along with the splice variants. 
     """   
     geneName = {}
-    with open(os.path.abspath(os.path.join(os.getcwd(),phytozome_file), "r")) as file:
+    with open(os.path.abspath(os.path.join(os.getcwd(),phytozome_file)), "r") as phytozome:
+        with open(os.path.abspath(os.path.join(os.getcwd(),phytozome_file + "name")), "w") as phytozomer:
+            for line in phytozome.readlines():
+                if line.startswith("!"): 
+                    continue     
+            phytozomer.write(line)
+    with open(os.path.abspath(os.path.join(os.getcwd(),phytozome_file + "name")), "r")) as file:
         for line in file.readlines():
             geneName[line.strip().split("\t")[0]] = [line.strip().split("\t")[1]]
     with open(os.path.abspath(os.path.join(os.getcwd(),output_file), "w")) as processed:
