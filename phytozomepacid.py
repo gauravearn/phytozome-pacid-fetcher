@@ -100,7 +100,7 @@ def prepareFunctionalNamePhytozome(phytozome_file, output_file):
         for line in file.readlines():
             functionalName[line.strip().split("\t")[0]] = ''.join(j for i in \
                                                         ([line.strip().split("\t")[2:]]) for j in i)
-    with open(os.path.abspath(os.path.join(os.getcwd(),output_file, "w") as processed:
+    with open(os.path.abspath(os.path.join(os.getcwd(),output_file)), "w") as processed:
         print(functionalName, file=processed)
 
 def preparegeneNamePhytozome(phytozome_file, output_file):
@@ -125,5 +125,5 @@ def preparegeneNamePhytozome(phytozome_file, output_file):
     with open(os.path.abspath(os.path.join(os.getcwd(),phytozome_file + "name")), "r")) as file:
         for line in file.readlines():
             geneName[line.strip().split("\t")[0]] = [line.strip().split("\t")[1]]
-    with open(os.path.abspath(os.path.join(os.getcwd(),output_file), "w")) as processed:
+    with open(os.path.abspath(os.path.join(os.getcwd(),output_file)), "w")) as processed:
         print(geneName, file=processed)
