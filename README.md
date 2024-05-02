@@ -3,7 +3,7 @@ this function takes ids file with the gene of interest and the phytozome gff fil
 
 I have added two additional functions which will help you process the raw files from the phytozome for the pacid analysis. 
 
-Gaurav Sablok \
+Gaurav \
 Academic Staff Member \
 Bioinformatics \
 Institute for Biochemistry and Biology \
